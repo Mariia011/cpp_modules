@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:33:34 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/18 20:51:06 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:36:49 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ Zombie* zombieHorde(int N, std::string name)
     {
         horde[i].set_name(name); 
     }
-    return horde;    
+    return horde;  
 }

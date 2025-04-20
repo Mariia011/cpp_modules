@@ -1,4 +1,4 @@
-NAME = ./ZombieHorde
+NAME = ./replace_string
 
 GCC = c++
 
@@ -22,7 +22,3 @@ clean :
 	rm $(NAME)
 
 fclean : clean 
-
-re: fclean all
-
-.PHONY: all clean fclean leaks re

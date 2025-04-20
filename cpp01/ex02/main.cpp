@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 21:06:38 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/19 18:32:45 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:40:12 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int main()
     std::cout << BOLDYELLOW << "The value of the string stringPTR: " << RESET << *stringPTR << std::endl;
     std::cout << BOLDYELLOW << "The value of the string stringREF: " << RESET << stringREF << std::endl;
     
-
-
+    return 0;
 }

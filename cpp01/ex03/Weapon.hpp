@@ -1,4 +1,17 @@
-#ifndef 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/20 18:10:27 by marikhac          #+#    #+#             */
+/*   Updated: 2025/04/20 21:22:56 by marikhac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 class Weapon {
     public:
@@ -7,6 +20,8 @@ class Weapon {
     private:
         std::string type;
     public:
-        std::string getType();
+        const std::string & getType();
         void setType(std::string);
 };
+
+#endif
