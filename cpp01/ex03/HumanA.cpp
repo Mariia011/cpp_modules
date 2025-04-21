@@ -6,16 +6,11 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:43:19 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/21 18:59:34 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/21 20:59:33 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
-
-// HumanA::HumanA(std::string userType, Weapon weapon) :  //initializer list 
-// {
-    // 
-// }
 
 HumanA::HumanA(){}
 
@@ -29,15 +24,15 @@ const std::string&  HumanA::get_name() const
     return this->name;
 }
 
-void    HumanA::set_weapon(Weapon *userWeapon)
+void    HumanA::setWeapon(const Weapon& userWeapon)
 {
-    
+    this->weapon = userWeapon;
 }
 
 
 void HumanA::attack()
 {
-    std::cout << this->get_name() << " attacks with their " << this->weapon.getType();
+    std::cout << this->get_name() << " attacks with their " << this->weapon.getType() << std::endl;
 }
 
-~HumanA::HumanA(){}
+HumanA::~HumanA(){}

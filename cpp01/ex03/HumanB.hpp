@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:10:19 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/21 17:25:38 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/21 20:57:47 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 class HumanB{
     public:
-        HumanB(std::string): name(userType), weapon(nullptr){}
+        HumanB(std::string userType): name(userType), weapon(nullptr){}
     private: 
         std::string name; 
         Weapon*     weapon;
     public:
-        void                setWeapon(std::string);
+        void                setWeapon(Weapon&);
         void                set_name(std::string);
-        const std::string&  get_name();
+        const std::string&  get_name() const;
         void                attack();
 };
 
