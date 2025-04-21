@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:11:49 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/20 18:29:10 by marikhac         ###   ########.fr       */
+/*   Created: 2025/04/21 14:45:01 by marikhac          #+#    #+#             */
+/*   Updated: 2025/04/21 15:32:48 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "header.hpp"
 
-#include <iostream>
-#include <string>
+const std::string& getType() const 
+{
+    return this->type;
+}
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
-
-#endif
+void setType(std::string userType)
+{
+    this->type = userType;
+}

@@ -1,25 +1,25 @@
-NAME = ./unnecessary_violence
+NAME = unnecessary_violence
 GCC = c++
 CPP_FLAGS = -Wall -Wextra -Werror
 SRC = ./HumanA.cpp ./HumanB.cpp ./Weapon.cpp ./main.cpp
-OBJS = $(SRC:.c=.o)
+OBJS = $(SRC:.cpp=.o)
 GREEN = \033[0;32m
 RESET = \033[0m
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJS)
-	@echo "$(GREEN) Makefile's work proceeded successfully $(RESET)"
-	@$(GCC) $(CPP_FLAGS) $(OBJS) -o $@
+$(NAME): $(OBJS)
+	@$(GCC) $(CPP_FLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)Build completed successfully!$(RESET)"
 
-$(OBJS): 
-	$(GCC) -c $(SRC)
+%.o: %.cpp
+	@$(GCC) $(CPP_FLAGS) -c $< -o $@
 
-clean : 
-	rm $(OBJS)
+clean:
+	@rm -f $(OBJS)
 
-fclean : clean 
-	rm $(NAME)
+fclean: clean
+	@rm -f $(NAME)
 
 re: fclean all
 

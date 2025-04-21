@@ -2,7 +2,7 @@ NAME = ./this_is_brain
 GCC = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = ./main.cpp
-OBJS = $(SRC:.c=.o)
+# OBJS = e
 COLOUR_GREEN= \033[0;32m
 COLOUR_END=\033[0m
 

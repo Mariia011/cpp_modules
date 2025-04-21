@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:10:27 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/21 17:23:48 by marikhac         ###   ########.fr       */
+/*   Created: 2025/04/21 14:44:29 by marikhac          #+#    #+#             */
+/*   Updated: 2025/04/21 17:25:19 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
-
 #include "header.hpp"
 
-class Weapon {
-    public:
-        Weapon();
-        ~Weapon();
-    private:
-        std::string type;
-    public:
-        const std::string & getType();
-        void setType(std::string);
-};
+void HumanB::setWeapon(std::string userType)
+{
+    
+}
 
-#endif
+void HumanB::set_name(std::string userType)
+{
+    this->name = userType;
+}
+
+const std::string&  HumanB::get_name()
+{
+    return this->name;
+}
+
+void HumanB::attack()
+{
+    std::cout << this->get_name() << " attacks with their " << this->weapon.getType();
+}
