@@ -4,21 +4,31 @@ GCC = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-# DEBUG = -g 
+SRC = ./main.cpp
 
-# VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
+$(OBJS) = $(subst SRC %.c=.o)
 
-SRC = ./ZombieHorde.cpp ./Zombie.cpp ./main.cpp
+DEBUG = -g 
+
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 
 all : $(NAME)
 
-$(NAME) : 
+$(NAME) : $(OBJS)
 	$(GCC) $(DEBUG) $(CPP_FLAGS) $(SRC) -o $@
+
+$(OBJS) : 
+	$(GCC) -c $(SRC)
 
 leaks : all
 	$(VALGRIND) ${NAME}
 
 clean : 
+	rm $(OBJS)
+
+fclean : clean
 	rm $(NAME)
 
-fclean : clean 
+re: fclean all
+
+.PHONY : all leaks clean fclean re
