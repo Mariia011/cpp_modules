@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:22:03 by marikhac          #+#    #+#             */
-/*   Updated: 2025/03/10 19:36:11 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:03:20 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ PhoneBook::PhoneBook()
 	this->i = 0;
 }
 
-PhoneBook::~PhoneBook()
-{		
-}
+PhoneBook::~PhoneBook(){}
 
-PhoneBook::PhoneBook(const PhoneBook&)
-{		
-}
+PhoneBook::PhoneBook(const PhoneBook&){}
 
 void PhoneBook::add_helper(const Contact& contact)
 {
@@ -71,12 +67,10 @@ void PhoneBook::format_display(const std::string& input) const
 		std::cout << input;
 }
 
-void PhoneBook::search_display(const Contact& contact, int number)
-{
-	std::cout << "|" << number << "|" 
-	<< format_display(contact.get_first_name()) << "|" << format_display(contact.get_last_name()) 
-	<< "|" << format_display(contact.get_nickname()); 
-}
+// void PhoneBook::search_display(const Contact& contact, int number)
+// {
+	// std::cout << "|" << number << "|" << format_display(contact.get_first_name()) << "|" << format_display(contact.get_last_name()) << "|" << format_display(contact.get_nickname()); 
+// }
 
 void PhoneBook::search()
 {
@@ -85,7 +79,8 @@ void PhoneBook::search()
 	std::cin >> input;
 	if(int index = this->is_format_correct(input))
 	{
-		search_display(this->contact_arr[index - 1], index);
+		std::cout << "meow";
+		// search_display(this->contact_arr[index - 1], index);
 	}
 	else
         std::cout << "Invalid index! Please enter a number between 1 and 8.\n";

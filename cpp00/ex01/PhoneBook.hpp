@@ -17,11 +17,11 @@ public:
 	void add_helper(const Contact&);
 	void format_display(const std::string&) const;
 	void search_display(const Contact& someContact, int number);
+	bool has_symbol(std::string);
 private:
 	int	 is_format_correct(const std::string input);
-	void search_display(const Contact&, int number);
+	// void search_display(const Contact&, int number);
 
-	// bool has_symbol(std::string);
 private:
 	Contact contact_arr[CONTACT_MAX];
 	int i;

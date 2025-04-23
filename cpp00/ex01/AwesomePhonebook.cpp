@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:12:29 by marikhac          #+#    #+#             */
-/*   Updated: 2025/03/10 18:59:18 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:19:04 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main()
 {
 	std::string input = "";
 	PhoneBook phoneBook;
+	std::cout << "prompt: ";
 	while(std::cin >> input)
 	{
 		std::cout << "prompt: ";
@@ -27,10 +28,10 @@ int main()
 			contact.contact_setter();
 			phoneBook.add(contact);
 		}
-		// else if (input == SEARCH)
-		// {
-		// 	phoneBook.search();
-		// }
+		else if (input == SEARCH)
+		{
+			phoneBook.search();
+		}
 	} 	
 	return 0;
 }

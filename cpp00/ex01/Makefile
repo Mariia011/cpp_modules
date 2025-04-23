@@ -1,22 +1,23 @@
-# NAME = phonebook
-# GCC = c++
-# CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
-# SRC = ./AwesomePhonebook.cpp Contact.cpp Phonebook.cpp 
-# OBJS = 
+NAME = phonebook
+GCC = c++
+OBJ_FLAG = -c
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
+SRC = AwesomePhonebook.cpp Contact.cpp PhoneBook.cpp 
+OBJS = $(subst .cpp,.o,$(SRC))
 
-# all : $(NAME)
+all : $(NAME)
 
-# $(NAME) : $(OBJS)
+$(NAME) : $(OBJS)
+	$(GCC) $^ -o $@
+%.o: %.cpp
+	$(GCC) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
 
-# $(OBJS) : $(SRC)
-# $(GCC) $(CPP_FLAGS) $(SRC) -c  
+clean : 
+	rm $(OBJS)
 
-# clean : 
-# 	rm $(OBJS)
+fclean : clean 
+	rm $(NAME)
 
-# fclean : clean 
-# 	rm $(NAME)
+re: fclean all 
 
-# re: flcean all 
-
-# .PHONY : all clean fclean re
+.PHONY : all clean fclean re

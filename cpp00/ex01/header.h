@@ -1,5 +1,5 @@
-#ifndef __HEADER_H__
-#define __HEADER_H__
+#ifndef HEADER_H
+#define HEADER_H
 
 #define CONTACT_MAX 8 
 #define EXIT "EXIT"
