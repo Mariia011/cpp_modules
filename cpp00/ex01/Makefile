@@ -8,15 +8,15 @@ OBJS = $(subst .cpp,.o,$(SRC))
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $^ -o $@
+	@$(GCC) -fsanitize=address $^ -o $@
 %.o: %.cpp
 	$(GCC) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
 
 clean : 
-	rm $(OBJS)
+	@rm $(OBJS)
 
 fclean : clean 
-	rm $(NAME)
+	@rm $(NAME)
 
 re: fclean all 
 

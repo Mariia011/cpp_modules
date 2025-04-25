@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:12:29 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/23 20:19:04 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:43:39 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ int main()
 {
 	std::string input = "";
 	PhoneBook phoneBook;
-	std::cout << "prompt: ";
-	while(std::cin >> input)
+	while(input != EXIT)
 	{
 		std::cout << "prompt: ";
-		if (input == EXIT)
-			break ;
-		else if (input == ADD)
+		getline(std::cin, input);
+		if (input == ADD)
 		{
 			Contact contact; 
 			contact.contact_setter();

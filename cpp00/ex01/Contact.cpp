@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:40:08 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/23 20:23:01 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:46:05 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ bool Contact::has_symbol(const std::string& input) const
 void Contact::input_phone_number(std::string& dest, const std::string msg)
 {
 	std::string input = "";
-	std::cin >> input;
-	while (input.empty() || this->has_symbol(phone_number))
-	{
-		std::cout << msg << ": "; 
-		std::cin >> input;	
-	}
+	do {
+		std::cout << msg; 
+		std::getline(std::cin, input);
+		if(this->has_symbol(input))
+			std::cout << "Your phone number has symbol!\n";	
+	} while (input.empty() || this->has_symbol(input));
 	dest = input;
 } 
 
@@ -96,18 +96,17 @@ void Contact::format_input(std::string& dest, const std::string msg)
 	std::string input = ""; 
 	while(input.empty())
 	{
-		std::cout << msg << ": "; 
-		std::cin >> input;
-		std::cout << std::endl;
+		std::cout << msg; 
+		std::getline(std::cin, input);
 	}	
 	dest = input;
 } 
 
 void Contact::contact_setter()
 {
-	format_input(this->first_name, "Enter your first name");
-	format_input(this->last_name, "Enter your last name");
-	format_input(this->nickname, "Enter your nickname");
-	format_input(this->darkest_secret, "Enter your darkest_secret");
-	input_phone_number(this->phone_number, "Enter your phonenumber;) ");
+	format_input(this->first_name, "Enter your first name: ");
+	format_input(this->last_name, "Enter your last name: ");
+	format_input(this->nickname, "Enter your nickname: ");
+	format_input(this->darkest_secret, "Enter your darkest_secret: ");
+	input_phone_number(this->phone_number, "Enter your phone number: ");
 }

@@ -3,9 +3,9 @@
 
 class Harl{
     public:
-
-    private:
         
+    private:
+
 
 };
 
