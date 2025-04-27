@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:12:29 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/25 18:43:39 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/27 16:04:31 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	PhoneBook phoneBook;
 	while(input != EXIT)
 	{
-		std::cout << "prompt: ";
+		std::cout << "PHONEBOOK: ";
 		getline(std::cin, input);
 		if (input == ADD)
 		{

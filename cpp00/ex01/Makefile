@@ -1,5 +1,5 @@
 NAME = phonebook
-GCC = c++
+GCC = c++ -g
 OBJ_FLAG = -c
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = AwesomePhonebook.cpp Contact.cpp PhoneBook.cpp 
