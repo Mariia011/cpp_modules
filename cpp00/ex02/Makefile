@@ -14,7 +14,7 @@ endef
 NAME = megaphone
 GCC = c++ 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./megaphone.cpp 
+SRC = ./tests.cpp ./Account.cpp
 OBJ = $(subst .cpp,.o,$(SRC))
 
 # DEBUG = -d
@@ -27,7 +27,7 @@ $(NAME) : $(OBJ)
 $(OBJ) : $(SRC)
 	@$(PRINT_LOADING)
 	@$(GCC) -c $(CPP_FLAGS) $< -o $@
-	@echo "$(COLOUR_BLUE)🦾Megaphone PRO is launched successfully$(RESET)"
+	@echo "$(COLOUR_BLUE)FILES ARE RESTORED SUCCESSFULLY$(RESET)"
 
 clean :
 	@rm $(OBJ)  
