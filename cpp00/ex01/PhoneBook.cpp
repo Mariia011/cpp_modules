@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 19:22:03 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/27 16:17:59 by marikhac         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "header.h"
 
@@ -21,28 +10,15 @@ PhoneBook::~PhoneBook(){}
 
 PhoneBook::PhoneBook(const PhoneBook&){}
 
-void PhoneBook::add_helper(const Contact& contact)
-{
-	// Contact tmp = contact;
-	
-	// for(int i = CONTACT_MAX - 1; i > 0; --i)
-	// {
-	// 	Contact shift = this->contact_arr[i];
-	// 	this->contact_arr[i] = this->contact_arr[CONTACT_MAX - 1];
-	// 	this->contact_arr[CONTACT_MAX - 1] = shift;
-	// }
-	// contact_arr[this->i] = tmp;
-	
-}
+// void PhoneBook::add_helper(const Contact& contact)
+// {
+// 	contact_arr[this->i % CONTACT_MAX] = contact;
+// }
 
 void PhoneBook::add(const Contact& contact)
 {
-	if(this->i == CONTACT_MAX)
-	{
-		this->add_helper(contact);
-		return;
-	}
-	this->contact_arr[this->i++] = contact;
+	this->contact_arr[this->i % CONTACT_MAX] = contact;
+	i++;
 }
 
 int PhoneBook::is_format_correct(const std::string input)

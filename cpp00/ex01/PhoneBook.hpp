@@ -17,7 +17,6 @@ public:
 	void search_display(const Contact&, int);
 	bool has_symbol(std::string);
 	void display_all_contacts();
-
 private:
 	int	 is_format_correct(const std::string);
 

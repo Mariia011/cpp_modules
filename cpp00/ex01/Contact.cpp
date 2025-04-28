@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 18:40:08 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/25 18:46:05 by marikhac         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
 Contact::Contact() : 
@@ -35,7 +23,6 @@ Contact::Contact (const Contact& other)
 
 Contact& Contact::operator=(const Contact& other)
 {
-	
 	if(this != &other)
 	{
 		this->first_name = other.first_name;	
