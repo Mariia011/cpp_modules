@@ -1,11 +1,11 @@
 #GIT IGNORE 
 
 #OBJ FILES
-.o
+*.o
 a.out
 
 #other stuff
 
-.log
+*.log
 phonebook
-.json
+*.json
