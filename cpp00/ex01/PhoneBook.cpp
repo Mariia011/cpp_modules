@@ -10,11 +10,6 @@ PhoneBook::~PhoneBook(){}
 
 PhoneBook::PhoneBook(const PhoneBook&){}
 
-// void PhoneBook::add_helper(const Contact& contact)
-// {
-// 	contact_arr[this->i % CONTACT_MAX] = contact;
-// }
-
 void PhoneBook::add(const Contact& contact)
 {
 	this->contact_arr[this->i % CONTACT_MAX] = contact;

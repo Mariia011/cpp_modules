@@ -1,19 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 20:12:38 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/22 20:12:55 by marikhac         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "header.hpp"
+#include "Harl.hpp"
 
 int main()
 {
-    
-    
+	Harl harl;
+	// std::string line;
+	// while(1)
+	// {
+	// 	std::cout << "gri brats: ";
+	// 	std::getline(std::cin, line);
+	// 	harl.complain(line);
+	// }
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("ERROR");
+	return 0;
 }

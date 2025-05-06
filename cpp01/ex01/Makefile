@@ -1,4 +1,4 @@
-NAME = ./ZombieHorde
+NAME = ZombieHorde
 
 GCC = c++
 
@@ -9,19 +9,23 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 # VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 
 SRC = ./ZombieHorde.cpp ./Zombie.cpp ./main.cpp
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : 
-	$(GCC) $(DEBUG) $(CPP_FLAGS) $(SRC) -o $@
+$(NAME) : $(OBJS)
+	$(GCC) $(CPP_FLAGS) $(OBJS) -o $@
+
+$(OBJS) : $(SRC)
+	$(GCC) $(CPP_FLAGS) -c $(SRC)
 
 leaks : all
-	$(VALGRIND) ${NAME}
+	$(VALGRIND) $(NAME)
 
 clean : 
-	rm $(NAME)
-
+	@rm $(OBJS)
 fclean : clean 
+	@rm $(NAME)
 
 re: fclean all
 

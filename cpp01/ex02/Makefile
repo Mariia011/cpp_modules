@@ -2,7 +2,7 @@ NAME = ./this_is_brain
 GCC = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = ./main.cpp
-# OBJS = e
+OBJS = $(SRC:.cpp=.o)
 COLOUR_GREEN= \033[0;32m
 COLOUR_END=\033[0m
 
@@ -12,8 +12,8 @@ $(NAME) : $(OBJS)
 	@echo "$(COLOUR_GREEN)Makefile work proceeded$(COLOUR_END)"
 	@$(GCC) $(OBJS) -o $@
 
-$(OBJS) : 
-	$(GCC) 
+$(OBJS) : $(SRC)
+	$(GCC) -c $(CPP_FLAGS) $(SRC) 
 
 clean : 
 	rm $(OBJS)

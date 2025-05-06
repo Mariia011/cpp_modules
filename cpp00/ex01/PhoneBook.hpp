@@ -23,6 +23,7 @@ private:
 private:
 	Contact contact_arr[CONTACT_MAX];
 	int i;
+//delete phone numbers and darkest secret in display  
 };
 
 #endif //__PHONEBOOK_HPP__ 

@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:25:52 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/04 20:20:28 by marikhac         ###   ########.fr       */
+/*   Updated: 2025/04/29 20:16:17 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int main()
     randomChump("stack");
     Zombie* zoomb = newZombie("heap_zombie");
     
-    delete zoomb;
+    delete zoomb;   
     return 0;
 }

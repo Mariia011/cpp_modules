@@ -1,20 +1,20 @@
-NAME = ./harl_complain
+NAME = fixed_02
 
-GCC = c++
+CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = ./main.cpp ./Harl.cpp 
+SRC = ./main.cpp ./Fixed.cpp 
 
-OBJS = $(SRC %.c=.o)
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $(SRC) -o $@
+	$(CXX) $(SRC) -o $@
 
-$(OBJS) :  
-	$(GCC) $(CPP_FLAGS) -c $(SRC) 
+%.o : %.cpp 
+	$(CXX) $(CPP_FLAGS) -c $(SRC) 
 
 clean : 
 	rm $(OBJS)

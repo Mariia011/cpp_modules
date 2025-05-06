@@ -1,0 +1,7 @@
+#GIT IGNORE 
+
+#OBJ FILES
+.o
+a.out
+
+
