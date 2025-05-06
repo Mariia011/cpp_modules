@@ -4,6 +4,8 @@
 .o
 a.out
 
+#other stuff
+
 .log
 phonebook
 .json
