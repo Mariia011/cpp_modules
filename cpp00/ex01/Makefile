@@ -1,5 +1,5 @@
 NAME = phonebook
-GCC = c++ -g
+CXX = c++ -g
 OBJ_FLAG = -c
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = AwesomePhonebook.cpp Contact.cpp PhoneBook.cpp 
@@ -10,11 +10,11 @@ OBJS_PATH = objs
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(GCC) -fsanitize=address $^ -o $@
+	@$(CXX) -fsanitize=address $^ -o $@
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)
-	$(GCC) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
+	$(CXX) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
 
 clean : 
 	@rm -rf $(OBJS_PATH)

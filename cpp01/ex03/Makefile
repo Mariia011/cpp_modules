@@ -1,5 +1,5 @@
 NAME = unnecessary_violence
-GCC = c++
+CXX = c++
 CPP_FLAGS = -Wall -Wextra -Werror
 SRC = ./HumanA.cpp ./HumanB.cpp ./Weapon.cpp ./main.cpp
 OBJS = $(SRC:.cpp=.o)
@@ -10,11 +10,11 @@ VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(GCC) $(CPP_FLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CPP_FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Build completed successfully!$(RESET)"
 
 %.o: %.cpp
-	@$(GCC) $(CPP_FLAGS) -c $< -o $@
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)

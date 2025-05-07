@@ -1,5 +1,5 @@
 NAME = stack_and_heap
-GCC = c++
+CXX = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = ./newZombie.cpp ./randomChump.cpp ./Zombie.cpp ./main.cpp
 OBJS = $(subst .cpp,.o,$(SRC))
@@ -7,10 +7,10 @@ OBJS = $(subst .cpp,.o,$(SRC))
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $(OBJS) -o $@
+	$(CXX) $(OBJS) -o $@
 	
 %.o: %.cpp
-	$(GCC) -c $(CPP_FLAGS) $< -o $@
+	$(CXX) -c $(CPP_FLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJS)

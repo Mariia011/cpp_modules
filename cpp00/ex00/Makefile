@@ -12,7 +12,7 @@ define PRINT_LOADING
 endef
 
 NAME = megaphone
-GCC = c++ 
+CXX = c++ 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = ./megaphone.cpp 
 OBJ = $(subst .cpp,.o,$(SRC))
@@ -22,11 +22,11 @@ OBJ = $(subst .cpp,.o,$(SRC))
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@$(GCC) $< -o $@
+	@$(CXX) $< -o $@
 
 $(OBJ) : $(SRC)
 	@$(PRINT_LOADING)
-	@$(GCC) -c $(CPP_FLAGS) $< -o $@
+	@$(CXX) -c $(CPP_FLAGS) $< -o $@
 	@echo "$(COLOUR_BLUE)🦾Megaphone PRO is launched successfully$(RESET)"
 
 clean :

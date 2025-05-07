@@ -1,6 +1,6 @@
 NAME = ZombieHorde
 
-GCC = c++
+CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -14,10 +14,10 @@ OBJS = $(SRC:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $(CPP_FLAGS) $(OBJS) -o $@
+	$(CXX) $(CPP_FLAGS) $(OBJS) -o $@
 
 $(OBJS) : $(SRC)
-	$(GCC) $(CPP_FLAGS) -c $(SRC)
+	$(CXX) $(CPP_FLAGS) -c $(SRC)
 
 leaks : all
 	$(VALGRIND) $(NAME)

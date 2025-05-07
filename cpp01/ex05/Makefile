@@ -1,6 +1,6 @@
 NAME = ./harl_complain
 
-GCC = c++
+CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -11,10 +11,10 @@ OBJS = $(SRC %.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $(SRC) -o $@
+	$(CXX) $(SRC) -o $@
 
 $(OBJS) :  
-	$(GCC) $(CPP_FLAGS) -c $(SRC) 
+	$(CXX) $(CPP_FLAGS) -c $(SRC) 
 
 clean : 
 	rm $(OBJS)

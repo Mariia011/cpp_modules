@@ -1,6 +1,6 @@
 NAME = ./replace_string
 
-GCC = c++
+CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -15,10 +15,10 @@ VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GCC) $(DEBUG) $(SRC) -o $@
+	$(CXX) $(DEBUG) $(SRC) -o $@
 
 %.o : %.cpp
-	$(GCC) $(CPP_FLAGS) -c $(SRC) 
+	$(CXX) $(CPP_FLAGS) -c $(SRC) 
 
 leaks : all
 	$(VALGRIND) ${NAME}
