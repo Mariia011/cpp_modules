@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "ClapTrap.hpp"
 
 enum class TextColor{
 	RESET = 0,
@@ -15,15 +14,19 @@ enum class TextColor{
     BRIGHT_CYAN= 96,
 };
 
-class ClapTrap{
+std::ostream& operator<<(std::ostream& ofstream, TextColor color);
+
+class ClapTrap
+{
+	private:
 	public:
 		ClapTrap();
 		ClapTrap(const std::string&);
 		ClapTrap(ClapTrap&);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap&); //copy assignement operator 
-	private:
-		const std::string& name;
+	protected:
+		std::string name;
 		int hit_points; 
 		int attack_damage; 
 		int energy_points; 
@@ -33,7 +36,6 @@ class ClapTrap{
 		void beRepaired(unsigned int amount);
 	public:
 		std::string name_getter();
-
 };
 
 #endif

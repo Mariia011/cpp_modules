@@ -5,22 +5,23 @@ std::ostream& operator<<(std::ostream& ofstream, TextColor color)
         return ofstream << "\033[" << static_cast<int>(color) << "m";
 }
 
-ClapTrap::ClapTrap() : hit_points(10), attack_damage(0), energy_points(10)
+ClapTrap::ClapTrap() 
 {
 	std::cout << "Default constructor for ClapTrap has been called" << "\n";
 }
 
-ClapTrap::ClapTrap(const std::string& userdef_name) : name(userdef_name), hit_points(10), attack_damage(0), energy_points(10)
+ClapTrap::ClapTrap(const std::string& userdef_name)
 {
+	this->name = userdef_name;
 	std::cout << "Parametric constructor for ClapTrap" << name << " has been called" << "\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap& other) //copy constructor 
 {
-	std::cout << "Copy constructor for ClapTrap has been called" << "\n";
+	std::cout << "Copy constructor for ClapTrap has been called\n";
 	if(this == &other)
-		return;
-	// name = other.name_getter(); //fix it 
+	return;
+	name = other.name_getter();
 	hit_points = other.hit_points;
 	energy_points = other.energy_points;
 }
