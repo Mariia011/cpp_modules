@@ -3,15 +3,16 @@
 int main()
 {
 	Harl harl;
-	// std::string line;
-	// while(1)
-	// {
-	// 	std::cout << "gri brats: ";
-	// 	std::getline(std::cin, line);
-	// 	harl.complain(line);
-	// }
+
 	harl.complain("DEBUG");
 	harl.complain("INFO");
 	harl.complain("ERROR");
+	harl.complain("safdsd");
+	harl.complain("ERROR");
+	harl.complain("INFO");
+	harl.complain("INCORRECT INPUT");
+	harl.complain("SOMETHING");
+	harl.complain("INFO");
+	harl.complain("INFO");
 	return 0;
 }

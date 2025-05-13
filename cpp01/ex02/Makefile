@@ -9,17 +9,17 @@ COLOUR_END=\033[0m
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	@echo "$(COLOUR_GREEN)Makefile work proceeded$(COLOUR_END)"
-	@$(CXX) $(OBJS) -o $@
+	@echo "$(COLOUR_GREEN)Brain is ready to rock$(COLOUR_END)"
+	@$(CXX) $(CPP_FLAGS) $(OBJS) -o $@
 
-$(OBJS) : $(SRC)
-	$(CXX) -c $(CPP_FLAGS) $(SRC) 
+%.o: %.cpp
+	@$(CXX) -c $(CPP_FLAGS) $< -o $@
 
 clean : 
-	rm $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

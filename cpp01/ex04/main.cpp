@@ -1,32 +1,32 @@
-#include "header.hpp"
+#include "Sed.hpp"
+
+void validation(int argc, char **argv, std::ifstream &infile)
+{
+	if (argc != 4)
+		throw std::invalid_argument("Invalid arguments");
+	infile.open(argv[1]);
+	if (!infile.is_open())
+		throw std::invalid_argument(std::string("Can't open file ") + argv[1]);
+}
 
 int main(int argc, char **argv)
 {
-    if (!check_argc(argc, argv))
-        return 0;
-    
-    std::string init_file = argv[1];
-    std::string new_file = rename_file(argv[1]);
-    std::cout << new_file << std::endl;
-    
-    std::ifstream ifs(init_file);
-    std::ofstream ofs(new_file);
-    
-    std::string line;
-
-    Functor functor(&ifs, &ofs);
-    
-    functor(argv[2], argv[3]);
-    ifs.open();
-
-    if(!ifs.is_open())
-        ifs.bad_error();
-    while (getline(ifs, line) && !ifs.eof())
+	std::ifstream infile;
+	
+    try {
+		validation(argc, argv, infile);
+	} catch (std::exception &message) 
     {
-        if(line == argv[2])
-            functor()
-    }
-    
-        metamorphosis(ifs, ofs);
-    return 0;
+		std::cerr << message.what() << std::endl;
+		return 1;
+	}
+	
+    std::string new_file = std::string(argv[1]) + ".replace";
+	std::ofstream outfile(new_file.c_str());
+
+	Sed replacer = Sed(infile, outfile);
+	replacer.replace(argv[2], argv[3]);
+	infile.close();
+	outfile.close();
+	return 0;
 }

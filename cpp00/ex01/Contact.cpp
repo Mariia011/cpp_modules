@@ -72,6 +72,10 @@ void Contact::input_phone_number(std::string& dest, const std::string msg)
 	do {
 		std::cout << msg; 
 		std::getline(std::cin, input);
+		if(std::cin.eof())
+		{
+			throw std::logic_error("EOF");
+		}
 		if(this->has_symbol(input))
 			std::cout << "Your phone number has symbol!\n";	
 	} while (input.empty() || this->has_symbol(input));
@@ -85,9 +89,13 @@ void Contact::format_input(std::string& dest, const std::string msg)
 	{
 		std::cout << msg; 
 		std::getline(std::cin, input);
-	}	
+		if(std::cin.eof())
+		{
+			throw std::logic_error("invlaid input bro");
+		}
+	}
 	dest = input;
-} 
+}
 
 void Contact::contact_setter()
 {

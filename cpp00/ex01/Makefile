@@ -4,17 +4,20 @@ OBJ_FLAG = -c
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = AwesomePhonebook.cpp Contact.cpp PhoneBook.cpp 
 OBJS_PATH = objs
-# OBJS = $($(OBJS_PATH)/subst .cpp,.o,$(SRC))
- OBJS = $(addprefix $(OBJS_PATH)/, $(SRC:.cpp=.o))
+OBJS = $(addprefix $(OBJS_PATH)/, $(SRC:.cpp=.o))
+
+COLOUR_BLUE=\033[0;34m
+RESET = \033[0m
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CXX) -fsanitize=address $^ -o $@
+	@$(CXX) $(CPP_FLAGS) $^ -o $@
+	@echo "$(COLOUR_BLUE)🦾AWESOME PHONEBOOK IS READY-Y-Y!$(RESET)"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)
-	$(CXX) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
+	@$(CXX) $(CPP_FLAGS) $(OBJ_FLAG) $< -o $@
 
 clean : 
 	@rm -rf $(OBJS_PATH)

@@ -1,42 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 14:44:29 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/21 20:58:09 by marikhac         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "HumanB.hpp"
 
-#include "header.hpp"
+HumanB::HumanB() : name(), weapon(NULL) {}
 
-// void HumanB::setWeapon(Weapon* userWeapon)
-// {
-    // this->weapon = userWeapon;
-// }
+HumanB::HumanB(const std::string& name) : name(name), weapon() {}
+
+HumanB::HumanB(const HumanB& copy_val) : name(copy_val.name), weapon(copy_val.weapon) {}
 
 void HumanB::setWeapon(Weapon& userWeapon)
 {
     this->weapon = &userWeapon;
 }
 
-void HumanB::set_name(std::string userType)
-{
-    this->name = userType;
-}
-
-const std::string&  HumanB::get_name() const
-{
-    return this->name;
-}
-
 void HumanB::attack()
 {
     if (this->weapon) {
-        std::cout << this->get_name() << " attacks with their " << this->weapon->getType() << std::endl;
+        std::cout << "Human A " << name << " attacks with their " << this->weapon->getType() << std::endl;
     } else {
-        std::cout << this->get_name() << " has no weapon to attack with!" << std::endl;
+        std::cout << name << " has no weapon to attack with!" << std::endl;
     }
 }

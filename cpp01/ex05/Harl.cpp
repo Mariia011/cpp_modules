@@ -25,20 +25,20 @@ void	Harl::complain(std::string level)
 	typedef void(Harl::*member_func_ptr)();
 	std::string arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
-	member_func_ptr complain[] = 
+	member_func_ptr the_complain[] = 
 	{
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,
 		&Harl::error
 	};
-	//may be solved with std::pair but it's STL;
 	for(int i = 0; i < 4; ++i)
 	{
 		if(arr[i] == level)
-			{this->complain[i]; return;}
-	}
-	std::cout << "Incorrect level FHASDLFH" << "\n";
-	
+		{
+			(this->*the_complain[i])(); 
+			return;
+		}
+	}	
 	std::cout << "Incorrect level input" << "\n";
 }

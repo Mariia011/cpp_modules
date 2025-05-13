@@ -1,19 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:10:27 by marikhac          #+#    #+#             */
-/*   Updated: 2025/04/21 20:37:10 by marikhac         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
-#include "header.hpp"
+#include <string>
+#include <iostream>
 
 class Weapon {
     public:

@@ -4,23 +4,24 @@ CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = ./main.cpp ./Harl.cpp 
+SRC = main.cpp Harl.cpp 
 
-OBJS = $(SRC %.c=.o)
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CXX) $(SRC) -o $@
+	@$(CXX) $(OBJS) -o $@
+	@echo "HARL COMPLAIN is ready"
 
-$(OBJS) :  
-	$(CXX) $(CPP_FLAGS) -c $(SRC) 
+%.o : %.cpp
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean : 
-	rm $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

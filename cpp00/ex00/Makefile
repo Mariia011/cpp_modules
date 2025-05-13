@@ -1,3 +1,10 @@
+
+NAME = megaphone
+CXX = c++ 
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = ./megaphone.cpp 
+OBJ = $(subst .cpp,.o,$(SRC))
+
 GREEN = \033[32m
 COLOUR_BLUE=\033[0;34m
 RESET = \033[0m
@@ -10,14 +17,6 @@ define PRINT_LOADING
 	done
 	@printf "] 100%%$(RESET)\n"
 endef
-
-NAME = megaphone
-CXX = c++ 
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = ./megaphone.cpp 
-OBJ = $(subst .cpp,.o,$(SRC))
-
-# DEBUG = -d
 
 all : $(NAME)
 

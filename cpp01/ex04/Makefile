@@ -1,34 +1,30 @@
-NAME = ./replace_string
-
+NAME = replace_string
 CXX = c++
-
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = ./main.cpp ./add_ons.cpp ./Functor.cpp
+SRC = ./main.cpp ./Sed.cpp
+OBJS_PATH = obj
+OBJS = $(addprefix $(OBJS_PATH)/, $(SRC:.cpp=.o))
 
-OBJS = $(SRC %.c=.o)
 
-DEBUG = -g 
+GREEN = \033[0;32m
+RESET = \033[0m
+all: $(NAME)
 
-VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
+$(NAME): $(OBJS)
+	@$(CXX) $(CPP_FLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)'replace_string' is built successfully!$(RESET)"
 
-all : $(NAME)
+$(OBJS_PATH)/%.o: %.cpp
+	@mkdir -p $(OBJS_PATH)
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
-	$(CXX) $(DEBUG) $(SRC) -o $@
+clean:
+	@rm -rf $(OBJS_PATH)
 
-%.o : %.cpp
-	$(CXX) $(CPP_FLAGS) -c $(SRC) 
-
-leaks : all
-	$(VALGRIND) ${NAME}
-
-clean : 
-	rm $(OBJS)
-
-fclean : clean
-	rm $(NAME)
+fclean: clean
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all leaks clean fclean re
+.PHONY: all clean fclean re
