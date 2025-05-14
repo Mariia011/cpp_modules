@@ -2,20 +2,19 @@
 
 Fixed::Fixed(){
 	this->num_val = 0;
-	std::cout << "Default constructor called" << "\n";
+	std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const int num)
-{
-	this->num_val = num;
-	std::cout << "Parametric constructor called" << "\n";
+Fixed::Fixed(int const value) {
+    std::cout << "Int constructor called" << std::endl;
+    num_val = value << this->fract_bits;
 }
 
-Fixed::Fixed(const float num)
-{
-	this->num_val = num;
-	std::cout << "Parametric constructor called" << "\n";
+Fixed::Fixed(float const value) {
+    std::cout << "Float constructor called" << std::endl;
+    num_val = roundf(value * (1 << this->fract_bits));
 }
+
 
 Fixed::Fixed(const Fixed& other)
 {
@@ -25,10 +24,10 @@ Fixed::Fixed(const Fixed& other)
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << "\n";
+	std::cout << "Copy assignment operator called\n";
 	if(this == &other)
 		return *this;
-	this->num_val = other.getRawBits();
+	this->num_val = other.num_val;
 	return *this;
 }
 
@@ -40,7 +39,7 @@ std::ostream& operator<<(std::ostream& stream, const Fixed& obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 float Fixed::toFloat(void) const

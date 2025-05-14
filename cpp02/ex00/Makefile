@@ -1,27 +1,28 @@
-NAME = fixed
+NAME = ./fixed
 
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = ./main.cpp ./Fixed.cpp 
+SRC = main.cpp Fixed.cpp 
 
 OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CXX) $(SRC) -o $@
+	@$(CXX) $(OBJS) -o $@
+	@echo "Fixed is ready"
 
-%.o : %.cpp 
-	$(CXX) $(CPP_FLAGS) -c $(SRC) 
+%.o : %.cpp
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean : 
-	rm $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean r

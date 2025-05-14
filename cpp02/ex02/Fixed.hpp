@@ -11,10 +11,8 @@ class Fixed{
 		static const int fract_bits = 8;
 	public: 
 		Fixed();
-		Fixed(int);
-		// Fixed(const int);
-		Fixed(float);
-		// Fixed(const float);
+		Fixed(const int);
+		Fixed(const float);
 		~Fixed();
 		Fixed(const Fixed& other);
 		Fixed& operator=(const Fixed& other);
@@ -37,10 +35,10 @@ class Fixed{
 		Fixed& operator--();
 		Fixed operator--(int);
 
-		int operator+(const Fixed &other);
-		int operator-(const Fixed &other);
-		int operator/(const Fixed &other);
-		int operator*(const Fixed &other);
+		Fixed operator+(const Fixed &other);
+		Fixed operator-(const Fixed &other);
+		Fixed operator/(const Fixed &other);
+		Fixed operator*(const Fixed &other);
 	public:
 		static const 	Fixed& max(const Fixed& obj1, const Fixed& obj2);
 		static		 	Fixed& max(Fixed& obj1, Fixed& obj2);

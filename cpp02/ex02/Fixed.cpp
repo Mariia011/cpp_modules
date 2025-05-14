@@ -1,32 +1,8 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
-	// this->num_val = 0;
-	std::cout << "Default constructor called" << "\n";
-}
-
-// Fixed::Fixed(const int num)
-// {
-// 	this->num_val = num;
-// 	std::cout << "Parametric constructor called" << "\n";
-// }
-
-Fixed::Fixed(int num)
-{
-	this->num_val = num;
-	std::cout << "Parametric constructor called" << "\n";
-}
-
-// Fixed::Fixed(const float num)
-// {
-// 	this->num_val = num;
-// 	std::cout << "Parametric constructor called" << "\n";
-// }
-
-Fixed::Fixed(float num)
-{
-	this->num_val = num;
-	std::cout << "Parametric constructor called" << "\n";
+	this->num_val = 0;
+	std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -35,19 +11,27 @@ Fixed::Fixed(const Fixed& other)
 	*this = other;
 }
 
+Fixed& Fixed::operator=(const Fixed& other)
+{
+	std::cout << "Copy assignment operator called\n";
+	if(this != &other)
+		num_val = other.num_val;
+	return *this;
+}
+
+Fixed::Fixed(const int value) {
+    std::cout << "Int constructor called" << std::endl;
+    num_val = value << this->fract_bits;
+}
+
+Fixed::Fixed(const float value) {
+    std::cout << "Float constructor called" << std::endl;
+    num_val = roundf(value * (1 << this->fract_bits));
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Default destructor called" << std::endl;
-}
-
-// overloading of operators
-Fixed& Fixed::operator=(const Fixed& other)
-{
-	std::cout << "Copy assignment operator called" << "\n";
-	if(this == &other)
-		return *this;
-	this->num_val = other.getRawBits();
-	return *this;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Fixed& obj)
@@ -88,26 +72,35 @@ bool Fixed::operator<=(const Fixed& other) const
 	return (operator==(other) || operator<(other));
 }
 
+
 // member arithmetic functions overloading 
 
-int Fixed::operator+(const Fixed &other)
+Fixed Fixed::operator+(const Fixed &other) 
 {
-	return this->num_val + other.num_val;
+	Fixed res;
+	res.setRawBits(this->num_val + other.num_val);
+	return res;
 }
 
-int Fixed::operator-(const Fixed &other)
+Fixed Fixed::operator-(const Fixed &other) 
 {
-	return this->num_val - other.num_val;
+	Fixed res;
+	res.setRawBits(this->num_val - other.num_val);
+	return res;
 }
 
-int Fixed::operator/(const Fixed &other)
+Fixed Fixed::operator/(const Fixed &other) 
 {
-	return this->num_val / other.num_val;
+	Fixed res;
+	res.setRawBits((this->num_val << this->fract_bits) / other.num_val);
+	return res;
 }
 
-int Fixed::operator*(const Fixed &other)
+Fixed Fixed::operator*(const Fixed &other) 
 {
-	return this->num_val * other.num_val;
+	Fixed res;
+	res.setRawBits((this->num_val * other.num_val) >> this->fract_bits);
+	return res;
 }
 // member operator increment and decrement overloading 
 
@@ -119,9 +112,8 @@ Fixed&	Fixed::operator++()
 
 Fixed	Fixed::operator++(int)
 {	
-	Fixed copy;
-	copy = this->num_val;
-	++(this->num_val);
+	Fixed copy(*this); //copy constructor
+	this->num_val++;
 	return copy;
 }
 
