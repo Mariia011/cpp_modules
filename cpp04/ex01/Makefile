@@ -1,10 +1,10 @@
-NAME = ./ClapTrap
+NAME = ./polymorphic_classes_01
 
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ClapTrap.cpp 
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -12,7 +12,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@$(CXX) $(OBJS) -o $@
-	@echo "ClapTrap is ready to clap"
+	@echo "'polymorphic_class 01' exe is ready to show the magic"
 
 %.o : %.cpp
 	@$(CXX) $(CPP_FLAGS) -c $< -o $@
@@ -25,4 +25,4 @@ fclean : clean
 
 re: fclean all
 
-.PHONY : all clean fclean r
+.PHONY : all clean fclean re

@@ -1,11 +1,6 @@
 #include "ClapTrap.hpp"
 
-std::ostream& operator<<(std::ostream& ofstream, TextColor color) 
-{
-        return ofstream << "\033[" << static_cast<int>(color) << "m";
-}
-
-ClapTrap::ClapTrap() : hit_points(10), attack_damage(0), energy_points(10)
+ClapTrap::ClapTrap() : name("Deafult"), hit_points(10), attack_damage(0), energy_points(10)
 {
 	std::cout << "Default constructor for ClapTrap has been called" << "\n";
 }
@@ -15,19 +10,19 @@ ClapTrap::ClapTrap(const std::string& userdef_name) : name(userdef_name), hit_po
 	std::cout << "Parametric constructor for ClapTrap" << name << " has been called" << "\n";
 }
 
-ClapTrap::ClapTrap(ClapTrap& other) //copy constructor 
+ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hit_points(other.hit_points), attack_damage(other.attack_damage), energy_points(other.energy_points)
 {
 	std::cout << "Copy constructor for ClapTrap has been called" << "\n";
-	if(this == &other)
-		return;
-	// name = other.name_getter(); //fix it 
-	hit_points = other.hit_points;
-	energy_points = other.energy_points;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Copy assignment operator called" << "\n";
+	if (this != &other)
+	{
+		hit_points = other.hit_points;
+		attack_damage = other.attack_damage;
+		energy_points = other.energy_points;
+	}
 	return *this;
 }
 
@@ -41,23 +36,26 @@ ClapTrap::~ClapTrap()
 void ClapTrap::attack(const std::string& target)
 {
 	if(energy_points < 1)
-		std::cout << TextColor::BRIGHT_GREEN << "ClapTrap" << name << " cannot attacks because has no energy points\n"<< TextColor::RESET;	
+		std::cout << COLOR_GREEN << "ClapTrap" << name << " cannot attacks because has no energy points\n"<< RESET;	
 	else 
 	{
-		std::cout << TextColor::BRIGHT_RED << "ClapTrap " << name << " attacks " << target << " causing " << attack_damage << " point of damage!\n" << TextColor::RESET;	
+		std::cout << COLOR_RED << "ClapTrap " << name << " attacks " << target << " causing " << attack_damage << " point of damage!\n" << RESET;	
 		--energy_points;
 	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if(amount > energy_points)
+	if (static_cast<int>(amount) >= hit_points)
 	{
-		std::cout << TextColor::BRIGHT_MAGENTA << name << " is dead\n" << TextColor::RESET;
-		return;
+		std::cout << name << " is dead\n";
+		hit_points = 0;
 	}
-	std::cout << name << " was damaged by " << amount << " points!\n";	
-	hit_points -= amount;
+	else
+	{
+		std::cout << name << " was damaged by " << amount << " points!\n";	
+		hit_points -= amount;
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -66,10 +64,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		--energy_points;
 		hit_points += amount;
-		std::cout << TextColor::BRIGHT_GREEN << "ClapTrap " << this->name << " was repaired by " << amount << " hit points! \n" << TextColor::RESET;	
+		std::cout << COLOR_GREEN << "ClapTrap " << this->name << " was repaired by " << amount << " hit points! \n" << RESET;	
 	}
 	else
-		std::cout << TextColor::BRIGHT_YELLOW << "---Error: Cannot repair ClapTrap---\n " << name << " has no energy to repair\n"<< TextColor::RESET ;
+		std::cout << COLOR_RED << "---Error: Cannot repair ClapTrap---\n " << name << " has no energy to repair\n"<< RESET ;
 }
 
 std::string ClapTrap::name_getter()

@@ -1,26 +1,27 @@
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-
-void testik(Animal* meta)
-{
- 	std::cout << meta->getType() << std::endl;
-}
-
 int main()
 {
 	const Animal* meta = new Animal();
+	const WrongAnimal* wrg_animal = new WrongCat();
 	const Animal* bobik = new Dog();
-	// const Animal* barsik = new Cat();
-	// std::cout << bobik->getType() << " " << std::endl;
-	// std::cout << barsik->getType() << " " << std::endl;
-	// barsik->makeSound();
-	// bobik->makeSound();
-	// meta->makeSound();
-	// testik(meta);
+	const Animal* barsik = new Cat();
+	
+	std::cout << meta->getType() << std::endl;
+	std::cout << wrg_animal->getType() << std::endl;
+	std::cout << bobik->getType() << " " << std::endl;
+	std::cout << barsik->getType() << " " << std::endl;
+	
+	wrg_animal->makeSound();
+	meta->makeSound();
+	barsik->makeSound();
+	bobik->makeSound();
 	delete (meta);
-	// delete (bobik);
-	// delete (barsik);
+	delete (bobik);
+	delete (barsik);
 	return 0;
 }

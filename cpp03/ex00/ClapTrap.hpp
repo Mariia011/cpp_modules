@@ -3,27 +3,20 @@
 
 #include <iostream>
 #include <string>
-#include "ClapTrap.hpp"
 
-enum class TextColor{
-	RESET = 0,
-    BRIGHT_RED= 91,
-    BRIGHT_GREEN= 92,
-    BRIGHT_YELLOW= 93,
-    BRIGHT_BLUE= 94,
-    BRIGHT_MAGENTA= 95,
-    BRIGHT_CYAN= 96,
-};
+#define COLOR_GREEN "\033[32m"
+#define RESET "\033[0m"
+#define COLOR_RED "\033[0;31m"
 
 class ClapTrap{
 	public:
 		ClapTrap();
 		ClapTrap(const std::string&);
-		ClapTrap(ClapTrap&);
+		ClapTrap(const ClapTrap&);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap&); //copy assignement operator 
 	private:
-		const std::string& name;
+		std::string name;
 		int hit_points; 
 		int attack_damage; 
 		int energy_points; 

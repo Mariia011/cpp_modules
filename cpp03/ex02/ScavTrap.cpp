@@ -1,43 +1,47 @@
-
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
-	std::cout << "Default constructor for ScavTrap has been called" << "\n";
+	std::cout << "ScavTrap parameter constructor called" << std::endl;
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& name_userdef) : ClapTrap(name_userdef)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-	hit_points = 100; 
-	attack_damage = 20; 
-	energy_points = 50;
-	std::cout << TextColor::BRIGHT_YELLOW <<"ScavTrap " << name << " is ready to serve\n" << TextColor::RESET;
-}	
-
-ScavTrap::ScavTrap(ScavTrap& other) 
-{
-	std::cout << "Copy constructor for ScavTrap has been called" << "\n";
-	if(this == &other)
-	return;
-	name = other.name_getter();
-	hit_points = other.hit_points;
-	energy_points = other.energy_points;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
-	std::cout << "Copy assignment operator for ScavTrap called" << "\n";
-	return *this;
+	if (this == &rhs)
+		return (*this);
+	std::cout << "ScavTrap copy assignment operator called." << std::endl;
+	this->name = rhs.name;
+	this->hit_points = rhs.hit_points;
+	this->energy_points = rhs.energy_points;
+	this->attack_damage = rhs.attack_damage;
+	return (*this);
+}
+
+void ScavTrap::guardGate() const
+{
+	std::cout << "ScavTrap " << this->name << " is now in gate keeper mode." << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+	if (this->hit_points > 0 && this->energy_points > 0)
+	{
+		std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage !" << std::endl;
+		--this->energy_points;
+	}
+	else
+		std::cout << "ScavTrap " << this->name << " can't attack! No energy or health left." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << TextColor::BRIGHT_CYAN << " Default desctructor for ScavTrap has been invoked \n" << TextColor::RESET;
-}
-
-
-
-void ScavTrap::guardGate()
-{
-	std::cout << TextColor::BRIGHT_CYAN << "ScavTrap now is in gate keeper mode\n" << TextColor::RESET;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }

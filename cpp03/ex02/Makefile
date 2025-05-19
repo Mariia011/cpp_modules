@@ -1,34 +1,27 @@
-NAME = FragTrap
-CXX = g++
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = ./SCAVTrap
 
+CXX = c++
+
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-OBJS = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
-OBJS = $(addprefix $(OBJS_PATH)/, $(SRC:.cpp=.o))
-OBJS_PATH = objs
 
-COLOR_GREEN = \033[32m
-COLOR_RESET = \033[0m
-COLOR_RED = \033[0;31m
-UNDERLINE = \u001b[4m
-BLINK = \u001b[5m
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@echo "$(COLOR_GREEN)Linking objects into $(NAME)...$(COLOR_RESET)"
-	$(CXX) $(OBJS) -o $@
+	@$(CXX) $(OBJS) -o $@
+	@echo "ScavTrap and ClapTrap and FRAGTRAP are ready to slap"
 
-$(OBJS_PATH)/%.o: %.cpp
-	@mkdir -p $(OBJS_PATH)
-	$(CXX) $(CPP_FLAGS) $< -o $@
-	
-clean :  
-	rm -rf	$(OBJ_DIR)/$(OBJS) 
+%.o : %.cpp
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
-fclean : clean 
-	rm -rf $(NAME)
+clean : 
+	@rm -f $(OBJS)
 
-re : fclean all
+fclean : clean
+	@rm -f $(NAME)
 
-.PHONY: all clean fclean re
+re: fclean all
+
+.PHONY : all clean fclean re

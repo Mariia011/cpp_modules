@@ -4,7 +4,7 @@ CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -25,4 +25,4 @@ fclean : clean
 
 re: fclean all
 
-.PHONY : all clean fclean r
+.PHONY : all clean fclean re

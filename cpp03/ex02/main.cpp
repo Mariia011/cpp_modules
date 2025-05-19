@@ -1,21 +1,26 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {	
-	ScavTrap scav("Harvey");
-	ScavTrap obj2("PJ");
-	obj2.attack("BOBA");
-	obj2.attack("BIBAAA");
-	// ClapTrap newone = scav;
-	// newone.attack("BOSS MEGA BOBA");
-	// newone.takeDamage(5);
-	// newone.attack("BOSS MEGA BOBA");
-	obj2.takeDamage(7);
-	obj2.takeDamage(21);
-	obj2.takeDamage(72);
-	obj2.beRepaired(2);
-	obj2.beRepaired(7);
+	ClapTrap("Xlopay");
+	ScavTrap scav("TYOMA");
+	FragTrap frag("MEOW");
+	ScavTrap scav2("PJ");
+	ClapTrap newone = scav;
+	
+	scav.attack("BOBA");
+	scav.attack("scav target");
+	scav.attack("BIBAAA");
+	newone.attack("BOSS MEGA BOBA");
+	newone.takeDamage(5);
+	newone.attack("BOSS MEGA BOBA");
+	
+	scav.takeDamage(7);
+	scav.takeDamage(21);
+	newone.takeDamage(72);
+	scav.beRepaired(2);
+	scav.beRepaired(7);
 
 	return 0;
 }

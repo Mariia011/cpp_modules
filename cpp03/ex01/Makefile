@@ -1,30 +1,27 @@
-NAME = ClapTrap 
-CXX = g++
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = ./SCAVTrap
 
+CXX = c++
+
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
-OBJS = $(SRC:.cpp=.o)
 
-COLOR_GREEN = \033[32m
-COLOR_RESET = \033[0m
-COLOR_RED = \033[0;31m
-UNDERLINE = \u001b[4m
-BLINK = \u001b[5m
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CXX) $(CPP_FLAGS) $(OBJS) -o $@
+	@$(CXX) $(OBJS) -o $@
+	@echo "ScavTrap and ClapTrap are ready to slap"
 
 %.o : %.cpp
-	$(CXX) $(CPP_FLAGS) -c $(SRC)
+	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
-clean :  
-	rm -rf $(OBJS)
+clean : 
+	@rm -f $(OBJS)
 
-fclean : clean 
-	rm -rf $(NAME)
+fclean : clean
+	@rm -f $(NAME)
 
-re : fclean all
+re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all clean fclean re

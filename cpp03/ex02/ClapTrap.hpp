@@ -4,25 +4,15 @@
 #include <iostream>
 #include <string>
 
-enum class TextColor{
-	RESET = 0,
-    BRIGHT_RED= 91,
-    BRIGHT_GREEN= 92,
-    BRIGHT_YELLOW= 93,
-    BRIGHT_BLUE= 94,
-    BRIGHT_MAGENTA= 95,
-    BRIGHT_CYAN= 96,
-};
+#define COLOR_GREEN "\033[32m"
+#define RESET "\033[0m"
+#define COLOR_RED "\033[0;31m"
 
-std::ostream& operator<<(std::ostream& ofstream, TextColor color);
-
-class ClapTrap
-{
-	private:
+class ClapTrap{
 	public:
 		ClapTrap();
 		ClapTrap(const std::string&);
-		ClapTrap(ClapTrap&);
+		ClapTrap(const ClapTrap&);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap&); //copy assignement operator 
 	protected:
@@ -36,6 +26,7 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 	public:
 		std::string name_getter();
+
 };
 
 #endif

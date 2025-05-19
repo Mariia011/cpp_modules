@@ -3,6 +3,7 @@
 Cat::Cat() : type("Cat")
 {
 	std::cout << "Default constructor for CAT class is called\n";	
+	the_brain = new Brain;
 }
 
 Cat::Cat(const Cat& other) 
@@ -22,6 +23,7 @@ Cat& Cat::operator=(const Cat& other)
 Cat::~Cat()
 {
 	std::cout << "Default destructor for CAT class is called\n";
+	delete the_brain;
 }
 
 std::string Cat::getType() const

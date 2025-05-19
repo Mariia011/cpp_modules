@@ -14,13 +14,13 @@ Animal::Animal(std::string userType) : type(userType)
 Animal::Animal(const Animal& other)
 {
 	std::cout << "Copy constructor of base class Animal is called\n";	
-	*this = other; //why with no ptr/reference?
+	*this = other;
 }
 
 Animal& Animal::operator=(const Animal& other)
 {
 	std::cout << "Operator assignment of base class Animal is called\n";	
-	if(this != &other) //why with reference?
+	if(this != &other)
 		type = other.type;
 	return *this;
 }
@@ -30,7 +30,6 @@ Animal::~Animal()
 	std::cout << "Default destructor for base class Animal is called\n";
 }
 
-//public member functions
 std::string Animal::getType() const
 {
 	return this->type;
