@@ -2,18 +2,18 @@
 
 const char* GradeTooHighException::what() const throw()
 {
-	return "the Grade is way too high, bye\n";
+	return "the Grade of the obj is 1, you cannot go further";
 }
 
 
 const char* GradeTooLowException::what() const throw()
 {
-	return "the Grade is way too low, bye\n";
+	return "the Grade of the obj is 150, limit exceeded";
 }
 
 //OCF support
 
-Bureaucrat::Bureaucrat() : name(" "), grade(150)
+Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
 	std::cout << "Default constructor for " << this->name << " called\n";
 }
@@ -28,10 +28,10 @@ Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : n
     std::cout << "Parametric constructor for " << this->name << " called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name)
 {
-	std::cout << "Copy constructor for " << this->name << " called\n";
 	*this = other;
+	std::cout << "Copy constructor for " << this->name << " called\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -48,14 +48,14 @@ Bureaucrat::~Bureaucrat(){std::cout << "Default destructor for " << this->name <
 
 void Bureaucrat::gradeIncrement()
 {
-	if(grade < 1)
+	if(grade <= 1)
 		throw GradeTooHighException();
 	--grade;
 }
 
 void Bureaucrat::gradeDecrement()
 {
-	if(grade > 150)
+	if(grade >= 150)
 		throw GradeTooLowException();
 	++grade;
 }

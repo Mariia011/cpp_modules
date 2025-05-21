@@ -1,12 +1,11 @@
 #include "Bureaucrat.hpp"
 
-const char* GradeTooHighException::what() const throw()
+const char*  Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "the Grade is way too high, bye\n";
 }
 
-
-const char* GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "the Grade is way too low, bye\n";
 }
@@ -70,7 +69,17 @@ short Bureaucrat::getGrade() const
     return grade;
 }
 
+void Bureaucrat::signForm(Form& form) 
+{
+	form.beSigned(*this);
+	if(form.isSigned() == true)
+		std::cout << this->name << " signed " << form.getName();
+	else 
+		std::cout << this->name << " didn't sign " << form.getName() << " because bureaucrat doesn't have enough Grade points" ;
+}
+
 // ostream overload
+
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj)
 {
 	stream << obj.getName() <<  " bureaucrat grade " << obj.getGrade() << "\n";

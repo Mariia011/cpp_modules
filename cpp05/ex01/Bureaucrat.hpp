@@ -3,21 +3,24 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "Form.hpp"
 
-class GradeTooLowException: public std::exception
-{
-    public:
-        const char* what() const throw();
-};
-
-class GradeTooHighException: public std::exception
-{
-    public:
-        const char* what() const throw();
-};
+class Form;
 
 class Bureaucrat 
 {
+    public: 
+        class GradeTooLowException: public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        
+        class GradeTooHighException: public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
     public:
         Bureaucrat();
         Bureaucrat(const std::string&, short);
@@ -32,6 +35,7 @@ class Bureaucrat
         void gradeDecrement();
         const std::string& getName() const;
         short getGrade() const;
+        void signForm(Form&);
 };
 
-   std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj);

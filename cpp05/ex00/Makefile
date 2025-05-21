@@ -19,7 +19,10 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Bureaucrat.cpp
 
-OBJS = $(SRC:.cpp=.o)
+OBJ_DIR = objs
+
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+
 
 all : $(NAME)
 
@@ -28,11 +31,12 @@ $(NAME) : $(OBJS)
 	@$(PRINT_LOADING) $(RESET)
 	@ echo "$(GREEN)🦾Gnac$(RESET)"
 
-%.o : %.cpp
-	@$(CXX) $(CPP_FLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o : %.cpp
+	@ mkdir -p $(OBJ_DIR)
+	@ $(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean : 
-	@rm -f $(OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean : clean
 	@rm -f $(NAME)
