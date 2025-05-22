@@ -1,8 +1,16 @@
 #pragma once
 
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-class PresidentialPadonForm
+class PresidentialPardonForm : public AForm
 {
+public:
+    // PresidentialPardonForm();
+    PresidentialPardonForm(const PresidentialPardonForm&);
+    PresidentialPardonForm(const std::string &userdef_name, const int execute, const int sign);
+    PresidentialPardonForm& operator=(const PresidentialPardonForm&);
+    ~PresidentialPardonForm();
+public: 
+
 
 };

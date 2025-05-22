@@ -19,20 +19,22 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
-OBJS = $(SRC:.cpp=.o)
+OBJ_DIR = objs
+
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@$(CXX) $(OBJS) -o $@
 	@$(PRINT_LOADING) $(RESET)
-	@ echo "$(GREEN)🦾Gnac$(RESET)"
+	@ echo "$(GREEN)LIAR LAWYER MIRROR FOR YA '\n' WHAT'S THE DIFFERENCE?$(RESET)"
 
-%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp
 	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean : 
-	@rm -f $(OBJS)
+	@rm -f $(OBJ_DIR)
 
 fclean : clean
 	@rm -f $(NAME)

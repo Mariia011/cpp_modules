@@ -5,20 +5,21 @@
 #include <stdexcept>
 // #include "Form.hpp"
 
-class GradeTooLowException: public std::exception
-{
-    public:
-        const char* what() const throw();
-};
-
-class GradeTooHighException: public std::exception
-{
-    public:
-        const char* what() const throw();
-};
 
 class Bureaucrat 
 {
+    public:
+        class GradeTooLowException: public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        
+        class GradeTooHighException: public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
     public:
         Bureaucrat();
         Bureaucrat(const std::string&, short);

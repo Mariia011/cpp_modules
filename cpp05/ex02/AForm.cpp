@@ -33,7 +33,7 @@ grade_execute(other.grade_execute), grade_sign(other.grade_sign)
 
 AForm& AForm::operator=(const AForm& other)
 {
-    std::cout << "Assignment operator definition have been invoked\n";
+    std::cout << "Assignment operator definition has been invoked\n";
     if(this != &other)
         this->is_signed = other.is_signed;
     return *this;
@@ -50,7 +50,6 @@ const std::string& AForm::getName() const
 {
     return this->name;
 }
-
 
 int AForm::getExecuteGrade() const
 {
