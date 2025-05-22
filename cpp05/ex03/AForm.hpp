@@ -4,25 +4,28 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {   
     public:
+	struct FormNotSigned : public std::exception
+	{
+		const char* what() const throw();
+	};
 	struct GradeTooHighException : public std::exception
 	{
 		const char *what() const throw();
 	};
-
 	struct GradeTooLowException : public std::exception
 	{
 		const char *what() const throw();
 	};
     public: 
-        Form();
-        Form(const Form&);
-        Form(const std::string &userdef_name, const int execute, const int sign);
-        Form& operator=(const Form&);
-        ~Form();
-    private:
+        AForm();
+        AForm(const AForm&);
+        AForm(const std::string &userdef_name, const int execute, const int sign);
+        AForm& operator=(const AForm&);
+        virtual ~AForm();
+    protected:
         const std::string name;
         bool is_signed;
         const int grade_execute;
@@ -32,7 +35,7 @@ class Form
         int getExecuteGrade() const;
         int getSignGrade() const;
         bool isSigned() const;
-        void beSigned(const Bureaucrat&);
+        virtual void beSigned(const Bureaucrat&);
 };
 
-std::ostream& operator<<(std::ostream&, const Form&);
+std::ostream& operator<<(std::ostream&, const AForm&);
