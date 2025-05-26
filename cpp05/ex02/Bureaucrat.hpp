@@ -3,9 +3,12 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+#include <cstdlib>  // for rand(), srand()
+#include <ctime>
+
+class AForm;
 
 class Bureaucrat 
 {
@@ -35,7 +38,7 @@ public:
     void gradeDecrement();
     const std::string& getName() const;
     short getGrade() const;
-    void signForm(Form&);
+    void signForm(AForm&);
 };
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj);

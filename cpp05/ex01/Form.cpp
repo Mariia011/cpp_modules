@@ -12,7 +12,7 @@ const char* Form::GradeTooHighException::what() const throw()
 
 Form::Form() : name("Default Form"), is_signed(false), grade_execute(150), grade_sign(150)
 {
-   std::cout << "Default destructor for " << name << " called\n";
+   std::cout << "Destructor for " << name << " called\n";
 }
 
 Form::Form(const std::string &userdef_name, const int execute, const int sign) : name(userdef_name), grade_execute(execute), grade_sign(sign)
@@ -41,7 +41,7 @@ Form& Form::operator=(const Form& other)
 
 Form::~Form()
 {
-    std::cout << "Default destructor for " << this->name << " called\n";
+    std::cout << "Destructor for " << this->name << " called\n";
 }
 
 //getters 

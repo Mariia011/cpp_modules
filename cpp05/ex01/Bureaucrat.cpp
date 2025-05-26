@@ -41,7 +41,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Default destructor for " << this->name << " called\n";}
+Bureaucrat::~Bureaucrat(){std::cout << "Destructor for " << this->name << " called\n";}
 
 //public member functions
 

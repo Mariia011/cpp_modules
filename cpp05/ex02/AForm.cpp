@@ -1,4 +1,9 @@
-#include "AAForm.hpp"
+#include "AForm.hpp"
+
+const char* AForm::FormNotSigned::what() const throw()
+{
+    return "FORM IS NOT SIGNED";
+}
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
@@ -12,10 +17,10 @@ const char* AForm::GradeTooHighException::what() const throw()
 
 AForm::AForm() : name("Default AForm"), is_signed(false), grade_execute(150), grade_sign(150)
 {
-   std::cout << "Default destructor for " << name << " called\n";
+   std::cout << "Destructor for " << name << " called\n";
 }
 
-AForm::AForm(const std::string &userdef_name, const int execute, const int sign) : name(userdef_name), grade_execute(execute), grade_sign(sign)
+AForm::AForm(const std::string &userdef_name, const std::string& userdef_target, const int execute, const int sign) : name(userdef_name), target(userdef_target), grade_execute(execute), grade_sign(sign)
 {
     if(execute < 1 || sign < 1)
         throw GradeTooHighException();
@@ -41,7 +46,7 @@ AForm& AForm::operator=(const AForm& other)
 
 AForm::~AForm()
 {
-    std::cout << "Default destructor for " << this->name << " called\n";
+    std::cout << "Destructor for " << this->name << " called\n";
 }
 
 //getters 

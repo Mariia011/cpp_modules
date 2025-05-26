@@ -1,15 +1,8 @@
 #include "Bureaucrat.hpp"
 
-const char* GradeTooHighException::what() const throw()
-{
-	return "the Grade of the obj is 1, you cannot go further";
-}
+const char* GradeTooHighException::what() const throw(){return "the Grade of the obj is 1, you cannot go further";}
 
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "the Grade of the obj is 150, limit exceeded";
-}
+const char* GradeTooLowException::what() const throw(){	return "the Grade of the obj is 150, limit exceeded";}
 
 //OCF support
 
@@ -36,13 +29,13 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    std::cout << "Copy assignment operator for " << this->name <<  " called\n";
+	std::cout << "Copy assignment operator for " << this->name <<  " called\n";
 	if(this != &other)
 	    this->grade = other.grade;
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Default destructor for " << this->name << " called\n";}
+Bureaucrat::~Bureaucrat(){std::cout << "Destructor for " << this->name << " called\n";}
 
 //public member functions
 
@@ -60,15 +53,9 @@ void Bureaucrat::gradeDecrement()
 	++grade;
 }
 
-const std::string& Bureaucrat::getName() const
-{
-    return name;
-}
+const std::string& Bureaucrat::getName() const{return name;}
     
-short Bureaucrat::getGrade() const
-{
-    return grade;
-}
+short Bureaucrat::getGrade() const{return grade;}
 
 // ostream overload
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj)

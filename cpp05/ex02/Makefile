@@ -11,13 +11,13 @@ define PRINT_LOADING
 	@printf "] 100%%$(RESET)\n"
 endef
 
-NAME = ./Bureaucrat
+NAME = ./tANJANQ
 
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp #ShrubberyCreationForm.cpp RobotomyRequestForm.cpp 
 
 OBJ_DIR = objs
 
@@ -31,10 +31,11 @@ $(NAME) : $(OBJS)
 	@ echo "$(GREEN)LIAR LAWYER MIRROR FOR YA '\n' WHAT'S THE DIFFERENCE?$(RESET)"
 
 $(OBJ_DIR)/%.o : %.cpp
+	@mkdir -p $(OBJ_DIR)
 	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
 clean : 
-	@rm -f $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fclean : clean
 	@rm -f $(NAME)

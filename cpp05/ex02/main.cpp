@@ -1,29 +1,31 @@
-#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
     
 int main() 
 {
     Bureaucrat obj1("Volodya", 50);
+    Bureaucrat obj4("Volodya", 170);
     std::cout << "INITIAL GRADE OF " << obj1.getName() << " IS " << obj1.getGrade() << std::endl;
-    Bureaucrat obj2("Meow", 10);
     try
     {
-        Form formik("Dox", 1000, 4);
+        PresidentialPardonForm president_pardon("the_form", "juju", 30, 1);
+        obj1.signForm(president_pardon);
     }
-    catch(const std::exception& e)
+    catch(std::exception &e)
     {
-        std::cerr << e.what() << '\n';
-    }    
-    try
-    {
-        Form formik("Dox", 3100, 4);   
+        std::cout << e.what() << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    } 
-    Form formik("Dox", 100, 4);   
-    obj1.signForm(formik);
-    obj2.gradeIncrement();
 
+    try
+    {
+        RobotomyRequestForm Robot("the_form", "juju", 72, 45);
+        obj1.signForm(Robot);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    // PresidentialPardonForm president_pardon("the_form", "juju", 25, 5);
+    // president_pardon.execute(obj1);
     return 0;
 }
