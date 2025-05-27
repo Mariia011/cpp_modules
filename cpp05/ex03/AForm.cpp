@@ -27,7 +27,6 @@ AForm::AForm(const std::string &userdef_name, const std::string& userdef_target,
     if(execute > 150 || sign > 150)
         throw GradeTooLowException();    
     is_signed = false;
-
     std::cout << "Parametric constructor for " << name << " has been invoked\n";
 }
 

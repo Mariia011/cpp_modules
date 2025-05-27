@@ -7,9 +7,7 @@ const char* GradeTooLowException::what() const throw(){	return "the Grade of the
 //OCF support
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
-{
-	std::cout << "Default constructor for " << this->name << " called\n";
-}
+{}
 
 Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name) 
 {
