@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "../includes/AForm.hpp"
 
 const char* AForm::FormNotSigned::what() const throw()
 {
@@ -75,7 +75,7 @@ bool AForm::isSigned() const
 //sign member function
 void AForm::beSigned(const Bureaucrat& employee)
 {
-    if(employee.getGrade() >= this->grade_sign)
+    if(employee.getGrade() < this->grade_sign)
     {
         is_signed = true;
         return;

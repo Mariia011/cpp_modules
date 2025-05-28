@@ -1,19 +1,19 @@
-#include "PresidentialPardonForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
-const char* PresidentialPardonForm::GradeTooLowExceptionExec::what() const throw() 
-{
-    return "Exception: Lowest possible grade for PresidentialPardonForm execution is 5";
-}
+// const char* PresidentialPardonForm::GradeTooLowExceptionExec::what() const throw() 
+// {
+//     return "Exception: Lowest possible grade for PresidentialPardonForm execution is 5";
+// }
 
-const char* PresidentialPardonForm::GradeSignNotCorrect::what() const throw()
-{
-    return "Exception: Your sign grade in PresidentalForm obj is not correct";
-}
+// const char* PresidentialPardonForm::GradeSignNotCorrect::what() const throw()
+// {
+//     return "Exception: Your sign grade in PresidentalForm obj is not correct";
+// }
 
-const char* PresidentialPardonForm::GradeExecNotCorrect::what() const throw()
-{
-    return "Exception: Your exec grade in PresidentalForm obj is not correct";
-}
+// const char* PresidentialPardonForm::GradeExecNotCorrect::what() const throw()
+// {
+//     return "Exception: Your exec grade in PresidentalForm obj is not correct";
+// }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &userdef_name, const std::string& userdef_target) : AForm(userdef_name, userdef_target, 25, 5)
 {}
@@ -25,7 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &userdef_name, 
 AForm(userdef_name, userdef_target, grade_execute, grade_sign)
 {
     if(grade_execute != 5)
-        throw GradeExecNotCorrect();
+        throw AForm::GradeExecNotCorrect();
     if(grade_sign != 25)
         throw GradeSignNotCorrect();
     is_signed = false;

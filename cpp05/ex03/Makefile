@@ -11,33 +11,36 @@ define PRINT_LOADING
 	@printf "] 100%%$(RESET)\n"
 endef
 
-NAME = ./tanjanq
+NAME = ./intern 
 
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Intern.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp 
+SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
+SRC_DIR = src
+INC_DIR = includes
 OBJ_DIR = objs
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME): $(OBJS)
 	@$(CXX) $(OBJS) -o $@
-	@$(PRINT_LOADING) $(RESET)
-	@ echo "$(GREEN)LIAR LAWYER MIRROR FOR YA '\n' WHAT'S THE DIFFERENCE?$(RESET)"
+	@$(PRINT_LOADING)
+	@echo "$(GREEN)MUR MUR MUR MUR MUR \n PASHOL NAKH TI TIMUR$(RESET)"
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@$(CXX) $(CPP_FLAGS) -c $< -o $@
 
-clean : 
+clean:
 	@rm -rf $(OBJ_DIR)
 
-fclean : clean
+fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all

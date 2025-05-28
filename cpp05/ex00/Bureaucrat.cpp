@@ -1,13 +1,12 @@
 #include "Bureaucrat.hpp"
 
-const char* GradeTooHighException::what() const throw(){return "the Grade of the obj is 1, you cannot go further";}
+const char* Bureaucrat::GradeTooHighException::what() const throw(){return "the Grade of the obj is 1, you cannot go further";}
 
-const char* GradeTooLowException::what() const throw(){	return "the Grade of the obj is 150, limit exceeded";}
+const char* Bureaucrat::GradeTooLowException::what() const throw(){	return "the Grade of the obj is 150, limit exceeded";}
 
 //OCF support
 
-Bureaucrat::Bureaucrat() : name("Default"), grade(150)
-{}
+Bureaucrat::Bureaucrat() : name("NPC bureaucrat"), grade(150){}
 
 Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name) 
 {

@@ -25,6 +25,11 @@ public:
         public:
             const char* what() const throw();
     };
+    class ExecException: public std::exception
+    {
+        public:
+            const char* what() const throw();
+    };
 public:
     Bureaucrat();
     Bureaucrat(const std::string&, short);
