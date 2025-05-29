@@ -11,11 +11,11 @@ define PRINT_LOADING
 	@printf "] 100%%$(RESET)\n"
 endef
 
-NAME = ./tanjanq
+NAME = ./many_forms
 
 CXX = c++
 
-CPP_FLAGS = #-Wall -Wextra -Werror -std=c++98
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
@@ -32,7 +32,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	@$(CXX) $(OBJS) -o $@
 	@$(PRINT_LOADING)
-	@echo "$(GREEN)LIAR LAWYER MIRROR FOR YA \n WHAT'S THE DIFFERENCE?$(RESET)"
+	@echo "$(GREEN)Creation of so many Forms is done$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)

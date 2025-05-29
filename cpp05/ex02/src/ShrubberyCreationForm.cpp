@@ -16,7 +16,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-    std::cout << "ya tut\n";
     if (!this->is_signed)
         throw AForm::FormNotSigned();
     if (executor.getGrade() > this->getExecuteGrade())
@@ -29,7 +28,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     }
     else
         std::clog << "Wrong permissions of file\n";
-    std::cout << "ya tut snova\n";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

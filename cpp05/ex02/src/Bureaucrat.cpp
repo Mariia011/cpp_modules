@@ -21,7 +21,6 @@ Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : n
 	if(userdef_grade > 150)
 		throw GradeTooLowException();
 	this->grade = userdef_grade;
-    std::cout << "Parametric constructor for " << this->name << " called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
@@ -36,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Destructor for " << this->name << " called\n";}
+Bureaucrat::~Bureaucrat(){}
 
 //public member functions
 
@@ -66,11 +65,15 @@ short Bureaucrat::getGrade() const
 
 void Bureaucrat::signForm(AForm& form) 
 {
-	form.beSigned(*this);
-	if(form.isSigned() == true)
+	try
+	{
+		form.beSigned(*this);
 		std::cout << this->name << " signed " << form.getName() << std::endl;
-	else 
+	}
+	catch(std::exception &e)
+	{
 		std::cout << this->name << " didn't sign " << form.getName() << " because bureaucrat doesn't have enough Grade points"<< std::endl ;
+	}
 }
 
 // ostream overload

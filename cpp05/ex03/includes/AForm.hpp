@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "../includes/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

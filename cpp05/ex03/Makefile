@@ -15,7 +15,7 @@ NAME = ./intern
 
 CXX = c++
 
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+CPP_FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
@@ -31,7 +31,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	@$(CXX) $(OBJS) -o $@
 	@$(PRINT_LOADING)
-	@echo "$(GREEN)MUR MUR MUR MUR MUR \n PASHOL NAKH TI TIMUR$(RESET)"
+	@echo "$(GREEN)It's a final countdown$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)

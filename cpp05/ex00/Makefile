@@ -11,7 +11,7 @@ define PRINT_LOADING
 	@printf "] 100%%$(RESET)\n"
 endef
 
-NAME = ./Bureaucrat
+NAME = ./bureaucrat
 
 CXX = c++
 

@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 #include <stdexcept>
-#include "../includes/AForm.hpp"
+#include "AForm.hpp"
 
 #include <cstdlib> 
 #include <ctime>
@@ -21,6 +21,11 @@ public:
     };
     
     class GradeTooHighException: public std::exception
+    {
+        public:
+            const char* what() const throw();
+    };
+    class ExecException: public std::exception
     {
         public:
             const char* what() const throw();

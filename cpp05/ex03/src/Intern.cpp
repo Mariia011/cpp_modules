@@ -1,15 +1,10 @@
 #include "../includes/Intern.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
-
 
 Intern::Intern() {}
 
 Intern::Intern(const Intern& other) {*this = other;}
 
-Intern &Intern::operator=(const Intern& ){return *this;}
-
+Intern &Intern::operator=(const Intern&){return *this;}
 
 static inline AForm *makeShrubberyForm(const std::string& name, const std::string& target) { return new ShrubberyCreationForm(name, target); }
 static inline AForm *makeRobotomyRequestForm(const std::string& name, const std::string& target) { return new RobotomyRequestForm(name, target); }
@@ -35,6 +30,7 @@ AForm* Intern::makeForm(const std::string& formType, const std::string& formTarg
 
 	for (int i = 0; keys[i]; ++i) {
 		if (formType == keys[i]) {
+			std::cout << "Intern creates " << formType << " named " << formTarget << std::endl;
 			return values[i](name, formTarget);
 		}
 	}

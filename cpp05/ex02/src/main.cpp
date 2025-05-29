@@ -4,34 +4,41 @@
     
 int main() 
 {
-    Bureaucrat obj1("Volodya", 20);
-    Bureaucrat obj4("Masha", 10);
-    // std::cout << "INITIAL GRADE OF " << obj1.getName() << " IS " << obj1.getGrade() << std::endl;
-    // std::cout << "INITIAL GRADE OF " << obj4.getName() << " IS " << obj4.getGrade() << std::endl;
-    // try
-    // {
-    //     PresidentialPardonForm president_pardon("presidental form", "juju");
-    //     obj1.signForm(president_pardon);
-    // }
-    // catch(std::exception &e)
-    // {
-    //     std::cout << e.what() << std::endl;
-    // }
-    // try
-    // {
-    //     RobotomyRequestForm Robot("Robotomy Form", "juju");
-    //     obj1.signForm(Robot);
-    // }
-    // catch(std::exception &e)
-    // {
-    //     std::cout << e.what() << std::endl;
-    // }
+    Bureaucrat Vladimir("Volodya", 2);
+    Bureaucrat Mariia("Masha", 10);
+
     try
     {
-        ShrubberyCreationForm shrubbery("JUJU", "juju");
-        obj1.signForm(shrubbery);
-        shrubbery.execute(obj1);
-        obj1.signForm(shrubbery);
+        PresidentialPardonForm president_pardon("presidental form", "PRESIDENT");
+        Vladimir.signForm(president_pardon);
+        president_pardon.execute(Vladimir);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+  
+    try
+    {
+        RobotomyRequestForm Robot("Robotomy Form", "ROBOT");
+        Vladimir.signForm(Robot);
+        Robot.execute(Vladimir);
+        Robot.execute(Vladimir);
+        Robot.execute(Vladimir);
+        Robot.execute(Vladimir);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+  
+    try
+    {
+        Vladimir.gradeIncrement();
+        ShrubberyCreationForm shrubbery("shrubbery target", "ascii_tree");
+        Vladimir.signForm(shrubbery);
+        shrubbery.execute(Vladimir);
+        Mariia.signForm(shrubbery);
     }
     catch(std::exception &e)
     {

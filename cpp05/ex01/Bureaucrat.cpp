@@ -71,12 +71,15 @@ short Bureaucrat::getGrade() const
 
 void Bureaucrat::signForm(Form& form) 
 {
-	form.beSigned(*this);
-	if(form.isSigned() == true)
-		std::cout << this->name << " signed " << form.getName();
-	else 
-		std::cout << this->name << " didn't sign " << form.getName() << " because bureaucrat doesn't have enough Grade points" ;
-}
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << this->name << " didn't sign " << form.getName() << " because bureaucrat doesn't have enough Grade points"<< std::endl ;
+	}}
 
 // ostream overload
 

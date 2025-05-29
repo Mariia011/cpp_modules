@@ -1,40 +1,15 @@
-#include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Intern.hpp"
-    
+  
 int main() 
 {
-    Bureaucrat obj1("Volodya", 20);
-    Bureaucrat obj4("Masha", 10);
-    // std::cout << "INITIAL GRADE OF " << obj1.getName() << " IS " << obj1.getGrade() << std::endl;
-    // std::cout << "INITIAL GRADE OF " << obj4.getName() << " IS " << obj4.getGrade() << std::endl;
-    try
-    {
-        PresidentialPardonForm president_pardon("presidental form", "juju");
-        obj1.signForm(president_pardon);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    try
-    {
-        RobotomyRequestForm Robot("Robotomy Form", "juju");
-        obj1.signForm(Robot);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    try
-    {
-        ShrubberyCreationForm shrubbery("JUJU KUST FORMMMMMMM", "juju");
-        obj1.signForm(shrubbery);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    Intern someRandomIntern;
+    AForm* ptr1 = someRandomIntern.makeForm("robotomy request", "Bender");
+    AForm* ptr2 =  someRandomIntern.makeForm("presidential pardon", "Bender2");
+    AForm* ptr3 = someRandomIntern.makeForm("shrubbery creation", "Bender3");
+    
+    delete ptr1;
+    delete ptr2;
+    delete ptr3;
+    
     return 0;
 }
