@@ -3,7 +3,7 @@
 int main() 
 {
     Bureaucrat obj1("Volodya", 150);
-    Bureaucrat obj2("Meow", 1);
+    Bureaucrat obj2("Mariia", 1);
     std::cout << "INITIAL GRADE OF " << obj1.getName() << " IS " << obj1.getGrade() << std::endl;
     std::cout << "INITIAL GRADE OF " << obj2.getName() << " IS " << obj2.getGrade() << std::endl;
     

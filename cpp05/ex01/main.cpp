@@ -2,28 +2,34 @@
     
 int main() 
 {
-    Bureaucrat obj1("Volodya", 50);
-    std::cout << "INITIAL GRADE OF " << obj1.getName() << " IS " << obj1.getGrade() << std::endl;
-    Bureaucrat obj2("Meow", 10);
+    Bureaucrat bureaucrat_obj("Volodya", 50);
+    std::cout << "INITIAL GRADE OF " << bureaucrat_obj.getName() << " IS " << bureaucrat_obj.getGrade() << std::endl;
+    Bureaucrat bureaucrat_obj2("Mariia", 10);
     try
     {
-        Form formik("Dox", 1000, 4);
+        Form form_obj("incorrect", 1000, 4);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }    
+    
     try
     {
-        Form formik("Dox", 3100, 4);   
+        Form form_obj("incorrect2", -4, 4);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
-    } 
-    Form formik("Dox", 100, 4);   
-    obj1.signForm(formik);
-    obj2.gradeIncrement();
+    }
+
+    Form formik("Dox", 50, 50);   
+    std::cout << bureaucrat_obj;
+    bureaucrat_obj.signForm(formik);
+
+    bureaucrat_obj.gradeIncrement();
+    std::cout << bureaucrat_obj;
+    bureaucrat_obj.signForm(formik);
 
     return 0;
 }

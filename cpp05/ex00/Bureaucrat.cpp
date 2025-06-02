@@ -6,7 +6,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){	return "the 
 
 //OCF support
 
-Bureaucrat::Bureaucrat() : name("NPC bureaucrat"), grade(150){}
+Bureaucrat::Bureaucrat() : name("NO_NAME bureaucrat"), grade(150){}
 
 Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name) 
 {
@@ -15,24 +15,21 @@ Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : n
 	if(userdef_grade > 150)
 		throw GradeTooLowException();
 	this->grade = userdef_grade;
-    std::cout << "Parametric constructor for " << this->name << " called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name)
 {
 	*this = other;
-	std::cout << "Copy constructor for " << this->name << " called\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	std::cout << "Copy assignment operator for " << this->name <<  " called\n";
 	if(this != &other)
 	    this->grade = other.grade;
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Destructor for " << this->name << " called\n";}
+Bureaucrat::~Bureaucrat(){}
 
 //public member functions
 

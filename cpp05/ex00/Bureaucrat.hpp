@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-// #include "Form.hpp"
-
 
 class Bureaucrat 
 {
@@ -36,4 +34,4 @@ class Bureaucrat
         short getGrade() const;
 };
 
-   std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& obj);

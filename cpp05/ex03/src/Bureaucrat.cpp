@@ -23,11 +23,7 @@ Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : n
 	this->grade = userdef_grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
-{
-	std::cout << "Copy constructor for " << this->name << " called\n";
-	*this = other;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& other){*this = other;}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
@@ -58,10 +54,7 @@ const std::string& Bureaucrat::getName() const
     return name;
 }
     
-short Bureaucrat::getGrade() const
-{
-    return grade;
-}
+short Bureaucrat::getGrade() const{return grade;}
 
 void Bureaucrat::signForm(AForm& form) 
 {

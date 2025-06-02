@@ -9,7 +9,7 @@ int main()
 
     try
     {
-        PresidentialPardonForm president_pardon("presidental form", "PRESIDENT");
+        PresidentialPardonForm president_pardon("PRESIDENT", "target");
         Vladimir.signForm(president_pardon);
         president_pardon.execute(Vladimir);
     }
@@ -20,7 +20,7 @@ int main()
   
     try
     {
-        RobotomyRequestForm Robot("Robotomy Form", "ROBOT");
+        RobotomyRequestForm Robot("ROBOT", "target");
         Vladimir.signForm(Robot);
         Robot.execute(Vladimir);
         Robot.execute(Vladimir);
@@ -35,7 +35,7 @@ int main()
     try
     {
         Vladimir.gradeIncrement();
-        ShrubberyCreationForm shrubbery("shrubbery target", "ascii_tree");
+        ShrubberyCreationForm shrubbery("SHRUBBERY", "target");
         Vladimir.signForm(shrubbery);
         shrubbery.execute(Vladimir);
         Mariia.signForm(shrubbery);

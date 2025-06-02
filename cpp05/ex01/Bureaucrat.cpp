@@ -10,12 +10,9 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return "the Grade is way too low, bye\n";
 }
 
-//OCF support
+//OCF supportstd::cout << "Destructor for " << this->name << " called\n";
 
-Bureaucrat::Bureaucrat() : name(" "), grade(150)
-{
-	std::cout << "Default constructor for " << this->name << " called\n";
-}
+Bureaucrat::Bureaucrat() : name(" "), grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name) 
 {
@@ -24,24 +21,21 @@ Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : n
 	if(userdef_grade > 150)
 		throw GradeTooLowException();
 	this->grade = userdef_grade;
-    std::cout << "Parametric constructor for " << this->name << " called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
-	std::cout << "Copy constructor for " << this->name << " called\n";
 	*this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    std::cout << "Copy assignment operator for " << this->name <<  " called\n";
 	if(this != &other)
 	    this->grade = other.grade;
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Destructor for " << this->name << " called\n";}
+Bureaucrat::~Bureaucrat(){}
 
 //public member functions
 
@@ -70,7 +64,7 @@ short Bureaucrat::getGrade() const
 }
 
 void Bureaucrat::signForm(Form& form) 
-{
+{	
 	try
 	{
 		form.beSigned(*this);
@@ -79,7 +73,8 @@ void Bureaucrat::signForm(Form& form)
 	catch(std::exception &e)
 	{
 		std::cout << this->name << " didn't sign " << form.getName() << " because bureaucrat doesn't have enough Grade points"<< std::endl ;
-	}}
+	}
+}
 
 // ostream overload
 
