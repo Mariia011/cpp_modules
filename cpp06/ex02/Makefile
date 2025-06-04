@@ -4,7 +4,7 @@ CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 OBJS = $(patsubst %.cpp, %.o, $(SRC))
 
 all : $(NAME)

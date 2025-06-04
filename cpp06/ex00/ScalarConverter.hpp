@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-// #include <fstream>
 #include <cstdlib>
 
 using namespace std;
@@ -11,7 +10,6 @@ using namespace std;
 class ScalarConverter {
 public:
     static void convert(const string& literal);
-
 private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter&);

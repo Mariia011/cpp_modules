@@ -8,27 +8,43 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &){return *thi
 
 ScalarConverter::~ScalarConverter(){}
 
+bool ScalarConverter::checkInf(const string &val)
+{
+	return (val == "inf"  || val == "inff" || val == "+inf" || val == "-inf" || val == "+inff" || val == "-inff");
+}
+
 void ScalarConverter::printNan(void)
 {
+    cout << "Char: " << "impossible\n";
+    cout << "Int: " << "impossible\n";
+    cout << "Float: " << "nanf\n";
+    cout << "Double: " << "nan\n";
+}
 
-    cout << "Char: " << "impossible" << endl;
-    cout << "Int: " << "impossible" << endl;
-    cout << "Float: " << "nanf" << endl;
-    cout << "Double: " << "nan" << endl;
+void ScalarConverter::printError(void)
+{
+	cout << "Char: " << "impossible\n";
+	cout << "Int: " << "impossible\n";
+	cout << "Float: " << "impossible\n";
+	cout << "Double: " << "impossible\n";
 }
 
 void ScalarConverter::printChar(const string &str)
 {
-	char res = static_cast<char>(atoi(str.c_str()));
+	
+	int num = atoi(str.c_str());
 	cout << "Char: ";
-	if (res < 0)
+	if(num < 0 || num > 127)
 		cout
-			<< "impossible" << endl;
-	else if (res < 32 || res == 127)
+			<< "impossible\n";
+	else if (num < 32 || num == 127)
 		cout
-			<< "Non displayable" << endl;
+			<< "Non displayable\n";
 	else
+	{
+		char res = static_cast<char>(num);
 		cout << "\'" << res << "\'" << endl;
+	}
 }
 
 void ScalarConverter::printInt(const string &str)
@@ -36,25 +52,20 @@ void ScalarConverter::printInt(const string &str)
 	cout << "Int: " << atoi(str.c_str()) << endl;
 }
 
-bool ScalarConverter::checkInf(const string &val)
-{
-    return (val == "inf" || val == "+inf" || val == "inff" || val == "+inff" || val == "-inf" || val == "-inff");
-}
-
-void ScalarConverter::printInf(const string &val)
+void ScalarConverter::printInf(const string &str)
 {
     cout << "Char: " << "impossible" << endl;
     cout << "Int: " << "impossible" << endl;
-    cout << "Float: " << (val[0] == '-' ? "-" : "+") << "inff" << endl;
-    cout << "Double: " << (val[0] == '-' ? "-" : "+") << "inf" << endl;
-}
-
-void ScalarConverter::printError(void)
-{
-	cout << "Char: " << "impossible" << endl;
-	cout << "Int: " << "impossible" << endl;
-	cout << "Float: " << "impossible" << endl;
-	cout << "Double: " << "impossible" << endl;
+    if(str[0] == '+')
+	{
+		cout << "Float: " << "+inff" << endl;
+		cout << "Double: " << "+inf" << endl;
+	}
+	else if(str[0] == '-')
+	{
+		cout << "Float: " << "-inff" << endl;
+		cout << "Double: " << "-inf" << endl;
+	}
 }
 
 void ScalarConverter::printFloat(const string &str)
@@ -76,15 +87,14 @@ void ScalarConverter::printDouble(const string &str)
 	cout << endl;
 }
 
+
 bool ScalarConverter::checkNum(const string &str)
 {
 	int i = 0;
 	if (str.empty())
 		return false;
-
 	if (str[i] == '+' || str[i] == '-')
 		++i;
-
 	int len = str.length();
 	int dotCount = 0;
 
@@ -92,7 +102,6 @@ bool ScalarConverter::checkNum(const string &str)
 		return false;
 	if (str[len - 1] == 'f')
 		--len;
-
 	for (; i < len; ++i)
 	{
 		if (str[i] == '.')
@@ -112,7 +121,7 @@ void ScalarConverter::convert(const string &str)
 	if (str == "nan" || str == "nanf")
         printNan();
 	else if (checkInf(str))
-    printInf(str);
+    	printInf(str);
 	else if (checkNum(str))
 	{
 		printChar(str);
