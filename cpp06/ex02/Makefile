@@ -1,10 +1,10 @@
-NAME = ./convert 
+NAME = ./identify
 
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Serializer.cpp Data.cpp
+SRC = main.cpp Base.cpp
 OBJS = $(patsubst %.cpp, %.o, $(SRC))
 
 all : $(NAME)
