@@ -8,7 +8,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){	return "the 
 
 Bureaucrat::Bureaucrat() : name("NO_NAME bureaucrat"), grade(150){}
 
-Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name) 
+Bureaucrat::Bureaucrat(const std::string &userdef_name, short userdef_grade) : name(userdef_name)
 {
 	if(userdef_grade < 1)
 		throw GradeTooHighException();

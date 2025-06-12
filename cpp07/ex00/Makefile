@@ -1,4 +1,4 @@
-NAME = ./identify
+NAME = ./templates
 
 CXX = c++
 
