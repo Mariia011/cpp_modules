@@ -2,7 +2,7 @@
 
 This repository contains solutions and exercises from the **C++ Modules** part of the 42 School curriculum. Each module explores key object-oriented programming concepts in C++98, building a strong foundation in clean, maintainable, and safe C++ code.
 
-## 🧠 Project Overview
+## Project Overview
 
 The C++ Modules at 42 are designed to teach:
 
@@ -35,11 +35,10 @@ All code is written in **C++98** standard, without using STL containers beyond w
 Each module contains:
 
 * Source code and headers
-* Subject PDF (if not confidential)
 * Makefile
 * Test cases and usage examples
 
-## 🚀 Getting Started
+## Getting Started
 
 To compile a module, navigate to its directory and run:
 
@@ -48,11 +47,11 @@ make
 ./program_name
 ```
 
-## 📚 Prerequisites
+## Prerequisites
 
 * GCC or Clang with C++98 support
 * Make
-* Linux or macOS recommended
+* Unix-like system
 
 ## 📎 Notes
 
