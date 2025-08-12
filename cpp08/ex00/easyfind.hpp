@@ -1,16 +1,16 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <exception>
+#include <set>
 #include <list>
-#include <deque>
+#include <vector>
+#include <iostream>
 
-template <typename T>
-typename T::iterator easyfind(T &container, const int find)
+template <typename T>typename T::iterator easy_find(T& cntr, int n)
 {
-	return std::find(container.begin(), container.end(), find);
+	return std::find(cntr.begin(), cntr.end(), n);
 }
 
-#endif
+#endif 

@@ -1,11 +1,11 @@
-NAME = ./mutant
+NAME = ./ex02
 
 CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
-HDR = MutantStack.hpp MutantStack.tpp
+HDR = MutantStack.tpp 
 
 all: $(NAME)
 

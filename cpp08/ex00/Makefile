@@ -2,24 +2,23 @@ NAME = ./easy_find
 
 CXX = c++
 
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
-OBJS = $(patsubst %.cpp, %.o, $(SRC))
+HDR = easyfind.hpp
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CXX) $(OBJS) -o $@
+$(NAME): $(SRC) $(HDR)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRC)
 
 %.o:%.cpp
-	@$(CXX) $(CPP_FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(NAME)
 
 fclean: clean
-	@rm -f $(NAME)
 
 re: fclean all
 
