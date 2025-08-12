@@ -10,7 +10,7 @@ void someFunc(T &data)
 int main()
 {
     int arr[] = {3, 4, 6, 2, 65};
-    char c_arr[] = {'q', 'y', 'a', 'q'};
+    char c_arr[] = {'m', 'e', 'o', 'w'};
     float f_arr[] = {6.0005, 8.543, 543.5};
     ::iter(arr, 5, someFunc);
     cout << endl;

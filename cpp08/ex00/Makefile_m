@@ -1,11 +1,11 @@
-NAME = ./mutant
+NAME = ./easyfind
 
 CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
-HDR = MutantStack.hpp MutantStack.tpp
+HDR = easyfind.hpp easyfind.tpp 
 
 all: $(NAME)
 
